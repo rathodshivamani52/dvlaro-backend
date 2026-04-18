@@ -19,7 +19,7 @@ app.post('/create-order', async (req, res) => {
         const { amount } = req.body; // Amount comes from the React cart
 
         const options = {
-            amount: amount * 100, // Razorpay needs the amount in paise (multiply by 100)
+            amount: req.body.amount * 100, // Razorpay needs the amount in paise (multiply by 100)
             currency: "INR",
             receipt: `receipt_order_${Math.floor(Math.random() * 1000)}`,
         };
